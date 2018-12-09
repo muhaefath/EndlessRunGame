@@ -11,12 +11,15 @@ public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData pointerEventData)
     {
         //Output the name of the GameObject that is being clicked
+        if (player.Move ) {
+            player.kenaTembok = false;
+        }
         player.speed = 5;
         player.dir = identity;
         player.Move = true;
 
 
-        Debug.Log(name + "Game Object Click in Progress");
+       
     }
 
     //Detect if clicks are no longer registering
@@ -24,7 +27,7 @@ public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         player.speed = 0;
         player.Move = false;
-        player.KenaTembok = false;
-        Debug.Log(name + "No longer being clicked");
+      
+        
     }
 }

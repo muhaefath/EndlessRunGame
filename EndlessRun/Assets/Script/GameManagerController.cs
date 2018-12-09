@@ -14,8 +14,8 @@ public class GameManagerController : MonoBehaviour {
     public float Score;
     public Text ScoreText;
 
-    //public Button Left;
-    //public Button Right;
+    public GameObject Left;
+    public GameObject Right;
 
     public GameObject CanvasDeath;
 

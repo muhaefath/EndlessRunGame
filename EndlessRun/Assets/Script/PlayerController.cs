@@ -7,19 +7,26 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public float dir;
     public bool Move;
-    public bool KenaTembok;
-  
+    public bool kenaTembok;
+
+    public GameObject Ledakan;
+
     SpriteRenderer sprite;
-	// Use this for initialization
-	void Start () {
+
+    public GameManagerController manager;
+
+    public float waktu;
+    bool Mati;
+    // Use this for initialization
+    void Start() {
         sprite = GetComponent<SpriteRenderer>();
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        Ledakan.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update() {
         //transform.Translate(speed * dir * Time.fixedDeltaTime,0,0);
-        if (Move && !KenaTembok) {
+        if (Move && !kenaTembok) {
             if (dir == 1)
             {
                 sprite.flipX = false;
@@ -29,59 +36,80 @@ public class PlayerController : MonoBehaviour {
             }
             transform.Translate(speed * dir * Time.fixedDeltaTime, 0, 0);
         }
-	}
+
+
+        if (Mati) {
+            StartCoroutine(DeathCanvas());
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.name == "wallplus")
         {
-            Debug.Log("masuk plus");
-            KenaTembok = true;
+            kenaTembok = true;
+            manager.Right.SetActive(false);
+        
         }
-        else if (collision.gameObject.name == "wallmin")
+         if (collision.gameObject.name == "wallmin")
         {
-            Debug.Log("masuk min");
-            KenaTembok = true;
+            kenaTembok = true;
+            manager.Left.SetActive(false);
+            
+        }
+
+        if (collision.gameObject.tag == "obs")
+        {
+            Ledakan.SetActive(true);
+            Mati = true;
+            Destroy(collision.gameObject);
+          //  Time.timeScale = 0;
+
+        }
+        if (collision.gameObject.tag == "Peluru")
+        {
+            Ledakan.SetActive(true);
+            Mati = true;
+            Destroy(collision.gameObject);
+            //  Time.timeScale = 0;
+
         }
     }
+
+    IEnumerator DeathCanvas( ) {
+        if (waktu > 0)
+        {
+            waktu -= Time.deltaTime;
+            yield return null;
+        }
+        else {
+            manager.CanvasDeath.SetActive(true);
+        }
+    }
+
+    
+
+   
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+      
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
         if (collision.gameObject.name == "wallplus")
         {
-            if (dir == 1 )
-            {
-                speed = 0;
-            }
-            else {
-                speed = 5;
-            }
+            kenaTembok = false;
+            manager.Right.SetActive(true);
         }
-        else if (collision.gameObject.name == "wallmin")
+         if (collision.gameObject.name == "wallmin")
         {
-            Debug.Log("masuk min");
-            if (dir == -1)
-            {
-                speed = 0;
-            }
-            else
-            {
-                speed = 5;
-            }
+            kenaTembok = false;
+            manager.Left.SetActive(true);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.name == "wallplus")
-        {
-            Debug.Log("masuk plus");
-            KenaTembok = false;
-        }
-        else if (other.gameObject.name == "wallmin")
-        {
-            Debug.Log("masuk min");
-            KenaTembok = false;
-        }
-    }
+
 }
