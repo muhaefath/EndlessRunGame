@@ -239,7 +239,7 @@ Transform:
   m_GameObject: {fileID: 234096880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8821, y: 1.8821, z: 1.8821}
+  m_LocalScale: {x: 2.9643075, y: 1.8821, z: 1.8821}
   m_Children:
   - {fileID: 1830741005}
   - {fileID: 1406906370}
@@ -269,9 +269,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 235560765}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.63492066, y: 1, z: 1}
   m_Children:
   - {fileID: 226665653}
   - {fileID: 1618112382}
@@ -1179,8 +1179,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1406906369}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.26, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.3396828, y: 0, z: 0}
+  m_LocalScale: {x: 0.63492066, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 234096882}
   m_RootOrder: 1
@@ -1829,9 +1829,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1830741004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.28, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.3523815, y: 0, z: 0}
+  m_LocalScale: {x: 0.63492066, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 234096882}
   m_RootOrder: 0
@@ -2133,9 +2133,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2096385306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3.34, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.63492066, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 234096882}
   m_RootOrder: 2
