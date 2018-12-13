@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public float dir;
     public bool Move;
-    public bool kenaTembok;
+    public bool kenaTembokPlus;
+    public bool kenaTembokMin;
 
     public GameObject Ledakan;
 
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 
     public float waktu;
     bool Mati;
+    public HoldButton[] hold;
     // Use this for initialization
     void Start() {
         sprite = GetComponent<SpriteRenderer>();
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         //transform.Translate(speed * dir * Time.fixedDeltaTime,0,0);
-        if (Move && !kenaTembok) {
+        if (Move && !kenaTembokPlus && !kenaTembokMin) {
             if (dir == 1)
             {
                 sprite.flipX = false;
@@ -35,6 +37,13 @@ public class PlayerController : MonoBehaviour {
                 sprite.flipX = true;
             }
             transform.Translate(speed * dir * Time.fixedDeltaTime, 0, 0);
+        }
+
+        if (kenaTembokPlus && Move == true && hold[1].pencet ) {
+            kenaTembokPlus = false;
+        }
+        else if(kenaTembokMin && Move == true && hold[0].pencet) {
+            kenaTembokMin = false;
         }
 
 
@@ -48,14 +57,14 @@ public class PlayerController : MonoBehaviour {
 
         if (collision.gameObject.name == "wallplus")
         {
-            kenaTembok = true;
-            manager.Right.SetActive(false);
+            kenaTembokPlus = true;
+         //   manager.Right.SetActive(false);
         
         }
          if (collision.gameObject.name == "wallmin")
         {
-            kenaTembok = true;
-            manager.Left.SetActive(false);
+            kenaTembokMin = true;
+          //  manager.Left.SetActive(false);
             
         }
 
@@ -101,13 +110,13 @@ public class PlayerController : MonoBehaviour {
     {
         if (collision.gameObject.name == "wallplus")
         {
-            kenaTembok = false;
-            manager.Right.SetActive(true);
+           // kenaTembok = false;
+            //manager.Right.SetActive(true);
         }
          if (collision.gameObject.name == "wallmin")
         {
-            kenaTembok = false;
-            manager.Left.SetActive(true);
+            //kenaTembok = false;
+           // manager.Left.SetActive(true);
         }
     }
 
