@@ -19,6 +19,8 @@ public class GameManagerController : MonoBehaviour {
 
     public GameObject CanvasDeath;
 
+    public bool ValidLoad;
+
 	// Use this for initialization
 	void Start () {
         CanvasDeath.SetActive(false);
@@ -64,5 +66,25 @@ public class GameManagerController : MonoBehaviour {
         }
     }
 
-   
+    public void SavePlayers()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayers()
+    {
+        PlayerData data = SaveSystem.loadPlayer(this);
+
+        Score = data.Score;
+    }
+
+    public int AmbilNilaiHighScore() {
+        PlayerData data = SaveSystem.loadPlayer(this);
+        if (!ValidLoad)
+        {
+            return 0;
+        }
+
+        return (int) data.Score;
+    }
 }
